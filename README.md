@@ -1,4 +1,4 @@
-Zookeeper
+ZOOKEEPER
 =========
 
 通过 ansible 部署在容器下运行的 Zookeeper 服务。
@@ -15,6 +15,7 @@ variable | description
 ------------ | -------------
 OPT_PATH | 部署目录
 SRV_PATH | 服务运行时持久化目录
+ZOKKEEPER_DEPLOYMENT_MODE | zookeeper 部署模式，PseudoDistributed、FullyDistributed
 ZOOKEEPER_NODE_NUM | zookeeper 节点数
 ZOOKEEPER_IMAGE_TAG | zookeeper 镜像版本
 ZOOKEEPER_NETWORK | docker network name ，其他依赖 zookeeper 的服务，可通过绑定此网络实现与 zookeeper 的通信（同样容器服务的情况下）
