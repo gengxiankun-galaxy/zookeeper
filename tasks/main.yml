@@ -1,0 +1,20 @@
+---
+# tasks file for zookeeper
+
+- name: 清除旧数据及旧容器
+  shell: 'docker-compose -f {{ OPT_PATH }}/zookeeper/docker-compose.yaml rm -fsva;rm -rf {{ OPT_PATH }}/zookeeper'
+  ignore_errors: yes
+
+- name: 创建部署目录
+  shell: '[[ ! -d "{{ OPT_PATH }}/zookeeper" ]] && mkdir -vp {{ OPT_PATH }}/zookeeper'
+  ignore_errors: yes
+
+- name: 创建持久化目录
+  shell: '[[ ! -d "{{ SRV_PATH }}/zookeeper" ]] && mkdir -vp {{ SRV_PATH }}/zookeeper; chmod 777 {{ SRV_PATH }}/zookeeper'
+  ignore_errors: yes
+
+- name: 配置 zookeeper docker-compose.yaml
+  template: src=docker-compose.yaml.j2 dest={{ OPT_PATH }}/zookeeper/docker-compose.yaml
+
+- name: 运行服务
+  shell: 'docker-compose -f {{ OPT_PATH }}/zookeeper/docker-compose.yaml up -d'
