@@ -18,7 +18,6 @@ services:
       - {{ ZOOKEEPER_NETWORK }}
 
 {% endfor %}
-
 networks:
   {{ ZOOKEEPER_NETWORK }}:
     name: {{ ZOOKEEPER_NETWORK }}
