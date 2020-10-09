@@ -14,7 +14,7 @@ Role Variables
 variable | description
 ------------ | -------------
 OPT_PATH | 部署目录
-SRV_PATH | 服务运行时持久化目录
+ZOOKEEPER_CONTAINER_NAME | zookeeper 容器名称
 ZOKKEEPER_DEPLOYMENT_MODE | zookeeper 部署模式，PseudoDistributed、FullyDistributed
 ZOOKEEPER_NODE_NUM | zookeeper 节点数
 ZOOKEEPER_IMAGE_TAG | zookeeper 镜像版本

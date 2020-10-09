@@ -2,8 +2,8 @@
 # defaults file for zookeeper
 
 OPT_PATH: # docker-compose.yaml 文件部署目录
-SRV_PATH: # zookeeper 容器运行时持久化目录
 
+ZOOKEEPER_CONTAINER_NAME: zookeeper
 ZOKKEEPER_DEPLOYMENT_MODE: PseudoDistributed # zookeeper 部署模式，PseudoDistributed、FullyDistributed
 ZOOKEEPER_NODE_NUM: 3        # zookeeper 节点数
 ZOOKEEPER_IMAGE_TAG: latest  # zookeeper 镜像版本
