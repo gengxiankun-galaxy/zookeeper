@@ -2,6 +2,8 @@ version: '3.5'
 
 services:
 
+{% if ZOKKEEPER_DEPLOYMENT_MODE == 'PseudoDistributed' %}
+
 {% for i in range(1, ZOOKEEPER_NODE_NUM+1) %}
   zookeeper_{{ i }}:
     image: zookeeper:{{ ZOOKEEPER_IMAGE_TAG }}
@@ -21,3 +23,17 @@ services:
 networks:
   {{ ZOOKEEPER_NETWORK }}:
     name: {{ ZOOKEEPER_NETWORK }}
+
+{% else %}
+
+  zookeeper:
+    image: zookeeper:{{ ZOOKEEPER_IMAGE_TAG }}
+    container_name: {{ ZOOKEEPER_CONTAINER_NAME }}
+    restart: always
+    ports:
+      - {{ ZOOKEEPER_PORT }}:2181
+    environment:
+      ZOO_MY_ID: {{ ZOO_MY_ID }}
+      ZOO_SERVERS: {{ ZOO_SERVERS }}
+
+{% endif %}
