@@ -32,6 +32,8 @@ networks:
     restart: always
     ports:
       - {{ ZOOKEEPER_PORT }}:2181
+      - 2888:2888
+      - 3888:3888
     environment:
       ZOO_MY_ID: {{ ZOO_MY_ID }}
       ZOO_SERVERS: {{ ZOO_SERVERS }}
